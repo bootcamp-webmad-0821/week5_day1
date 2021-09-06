@@ -1,0 +1,26 @@
+<div class="container">
+
+    <h1>Detalles de {{theBook.title}}</h1>
+    <hr>
+    <div class="row">
+        <div class="col-md-6">
+            Descripción
+            <br>
+            {{theBook.description}}
+        </div>
+        <div class="col-md-6">
+            Autor/a
+            <br>
+            {{theBook.author}}
+        </div>
+    </div>
+
+    <hr>
+
+    {{!-- Renderizado condicional: sólo renderiza si el usuario estña contectao --}}
+    {{#if isLogged}}
+    <a href="/libros/editar?book_id={{theBook.id}}" class="btn btn-warning">Editar</a>
+    {{/if}}
+
+    <a href="/libros" class="btn btn-dark">Volver</a>
+</div>

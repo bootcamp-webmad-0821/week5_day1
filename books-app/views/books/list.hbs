@@ -1,0 +1,38 @@
+<div class="container">
+    <h1>Listado de libros</h1>
+
+    {{#if isLogged}}
+    <a href="/libros/crear" class="btn btn-dark">Crear nuevo libro (solo logueados)</a>
+    {{/if}}
+
+
+    {{#if isPM}}
+    <a href="#" class="btn btn-warning">Eliminar todos (solo PM!)</a>
+    {{/if}}
+
+
+    <hr>
+
+
+    {{#each books}}
+
+    <p>
+        {{title}}
+        <small>- {{author}} -
+            [<a href="/libros/detalles/{{id}}">ver detalles</a>]
+
+            {{!-- Renderizado condicional: sólo se muestra si está logeuado --}}
+            {{#if ../isLogged}}
+            [<a href="/libros/editar?book_id={{id}}">editar</a>]
+            {{/if}}
+
+
+        </small>
+    </p>
+
+    <hr style="opacity: .5;">
+
+    {{/each}}
+
+    <a href="/" class="btn btn-dark">Volver</a>
+</div>
